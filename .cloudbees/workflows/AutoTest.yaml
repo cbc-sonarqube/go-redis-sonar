@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - "**"
+  workflow_dispatch:
 jobs:
   build:
     steps:
@@ -14,7 +15,7 @@ jobs:
         run: |
           echo "hello world"
       - name: checkout-source-code
-        uses: cloudbees-io/checkout@v1    
+        uses: cloudbees-io/checkout@v1
       - name: Run gosec (SO)
         uses: cloudbees-io/gosec-sast-scan-code@v1
         kind: scan
