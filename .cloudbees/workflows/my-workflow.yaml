@@ -18,9 +18,14 @@ jobs:
         name: checkout-source-code
       - uses: cloudbees-io/gosec-sast-scan-code@v1
         name: Gosec scan
+      - uses: cloudbees-io/snyk-sast-scan-code@v1
+        name: Snyk sast scan
+        with:
+          orgname: cloudbees-compliance-cbc
+          token: ac5b0ff5-afcf-4406-86ab-ecf300f0e3e3
       - uses: cloudbees-io/mend-sast-scan-code@v1
         name: mend sast scan
-        kind: scan
         with:
           server-url: https://sast-app.whitesourcesoftware.com/sast/
           token: 259d4618435ceb66768cc0eb71bae3e760331962cd5df90bb902ffb01e8fb5a7
+          
