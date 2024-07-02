@@ -18,14 +18,8 @@ jobs:
         name: checkout-source-code
       - uses: cloudbees-io/gosec-sast-scan-code@v1
         name: Gosec scan
-        kind: scan
-        with:
-          language: LANGUAGE_GO
       - uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
         name: SonarQube Scan
-        kind: scan
-        with:
-          language: LANGUAGE_GO
       - uses: cloudbees-io/mend-sast-scan-code@v1
         name: mend sast scan
         kind: scan
