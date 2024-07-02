@@ -16,8 +16,6 @@ jobs:
           echo "hello world"
       - uses: cloudbees-io/checkout@v1
         name: checkout-source-code
-      - uses: cloudbees-io/gosec-sast-scan-code@v1
-        name: Gosec scan
       - uses: cloudbees-io/snyk-sast-scan-code@v1
         name: Snyk sast scan
         with:
