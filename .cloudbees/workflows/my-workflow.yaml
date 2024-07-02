@@ -20,4 +20,6 @@ jobs:
         name: Run Sonarqube
         with:
           language: LANGUAGE_GO
+      - uses: cloudbees-io/gosec-sast-scan-code@v1
+        name: Run gosec (SO)
           
