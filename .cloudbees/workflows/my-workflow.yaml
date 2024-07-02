@@ -1,0 +1,39 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: My workflow
+on:
+  push:
+    branches:
+      - "**"
+jobs:
+  build:
+    steps:
+      - uses: docker://golang:1.20.3-alpine3.17
+        name: Say hello
+        shell: sh
+        run: |
+          echo "hello world"
+      - uses: cloudbees-io/checkout@v1
+        name: checkout-source-code
+      - uses: cloudbees-io/gosec-sast-scan-code@v1
+        name: Gosec scan
+        kind: scan
+        with:
+          language: LANGUAGE_GO
+      - uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
+        name: SonarQube Scan
+        kind: scan
+        with:
+          language: LANGUAGE_GO
+      - uses: cloudbees-io/mend-sast-scan-code@v1
+        name: mend sast scan
+        kind: scan
+        with:
+          server-url: https://sast-app.whitesourcesoftware.com/sast/
+          token: 259d4618435ceb66768cc0eb71bae3e760331962cd5df90bb902ffb01e8fb5a7
+      - uses: cloudbees-io/snyk-sast-scan-code@v1
+        name: Snyk sast scan
+        kind: scan
+        with:
+          orgname: cloudbees-compliance-cbc
+          token: ac5b0ff5-afcf-4406-86ab-ecf300f0e3e3
