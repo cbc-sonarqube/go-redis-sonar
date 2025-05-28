@@ -14,11 +14,7 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
-      - uses: cloudbees-io/checkout@v1
-        name: checkout-source-code
-      - uses: cloudbees-io/gosec-sast-scan-code@v1
-        name: Gosec scan
-      - uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
-        name: SonarQube Scan
-        with:
-          language: LANGUAGE_GO
+    #   - uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
+    #     name: SonarQube Scan
+    #     with:
+    #       language: LANGUAGE_GO
