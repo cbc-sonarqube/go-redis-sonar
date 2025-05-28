@@ -14,7 +14,7 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
-    #   - uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
-    #     name: SonarQube Scan
-    #     with:
-    #       language: LANGUAGE_GO
+      - uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v2
+         name: SonarQube Scan
+         with:
+           language: LANGUAGE_GO
